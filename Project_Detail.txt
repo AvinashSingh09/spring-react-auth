@@ -1,0 +1,147 @@
+PROJECT 1: AUTHENTICATION & USER MANAGEMENT SYSTEM
+
+(Weeks 1–4 | Foundation Project)
+
+Objective
+
+Demonstrate secure backend design, Spring Security mastery, and frontend authentication flow.
+This project answers the question:
+
+“Can you build a production-ready login system?”
+
+1. Functional Requirements
+User Roles
+
+USER
+
+ADMIN
+
+User Capabilities
+
+Register
+
+Login
+
+Access own profile
+
+Logout (token-based)
+
+Refresh access token
+
+Admin Capabilities
+
+View all users
+
+Enable / disable user accounts
+
+Assign roles
+
+2. Backend – What Exactly to Build
+Database Design
+User
+- id (UUID)
+- name
+- email (unique)
+- password
+- role (ENUM)
+- enabled (boolean)
+- createdAt
+
+RefreshToken
+- id
+- token
+- user_id
+- expiryDate
+
+API Endpoints
+POST   /api/auth/register
+POST   /api/auth/login
+POST   /api/auth/refresh
+GET    /api/users/me
+GET    /api/admin/users
+PUT    /api/admin/users/{id}/disable
+
+Security Architecture
+
+Spring Security Filter Chain
+
+JWT authentication filter
+
+Stateless session
+
+BCrypt password hashing
+
+Role-based authorization (@PreAuthorize)
+
+Internal Architecture
+controller/
+service/
+repository/
+dto/
+entity/
+security/
+exception/
+config/
+
+Key Concepts You MUST Implement
+
+DTO ↔ Entity mapping
+
+Global exception handling
+
+Validation using @Valid
+
+Custom JWT filter
+
+Token expiration handling
+
+3. Frontend – What Exactly to Build
+Pages
+
+Login
+
+Register
+
+Dashboard
+
+Admin Panel
+
+Behavior
+
+Store JWT securely
+
+Protect routes
+
+Auto logout on token expiry
+
+Role-based UI rendering
+
+4. Interview Value
+
+You can explain:
+
+JWT flow end-to-end
+
+Security filter chain
+
+Why stateless auth is used
+
+Password hashing strategy
+
+HOW TO PRESENT THESE PROJECTS (CRITICAL)
+
+Each GitHub repo must include:
+
+Architecture diagram
+
+API documentation (Swagger)
+
+README with:
+
+Problem statement
+
+Tech stack
+
+Features
+
+Setup instructions
